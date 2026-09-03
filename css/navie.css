@@ -1,0 +1,44 @@
+/* ================= Navie's travel path (drawn into #ambientBg by js/background.js,
+   using waypoints computed in js/navie.js — see NAVIE_STOPS) ================= */
+.navie-path-line { fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 5 6; opacity: 0.25; }
+.navie-path-line.navy-zone { stroke: var(--gold-bright); opacity: 0.28; }
+.navie-path-node { fill: var(--gold); stroke: var(--ivory); stroke-width: 1.5; opacity: 0.5; }
+.navie-path-node.navy-zone { fill: var(--gold-bright); stroke: var(--navy-deep); opacity: 0.55; }
+
+/* ================= Navie: travels along the reserved lane (--navie-lane, base.css), stopping beside content, never over it =================
+   Position (`left`/`top`) is driven frame-by-frame by js/navie.js's own animation loop —
+   not a CSS transition — so Navie can glide along an actual curved arc toward each stop
+   (echoing the dashed .navie-path-line it travels beside) instead of easing in a straight
+   line between two points. Only opacity/transform (the initial fade-in) stay as CSS
+   transitions here; nothing here fights the per-frame position updates.
+   The bot and bubble stack vertically (not side-by-side) so their combined footprint fits
+   inside the lane at every breakpoint without needing to reach past it into content. */
+.navie-teaser {
+  position: fixed; z-index: 45; left: 24px; top: 78vh;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none;
+  opacity: 0; transform: translateY(16px) scale(0.94);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.navie-teaser.navie-in { opacity: 1; transform: translateY(0) scale(1); }
+.navie-bot-wrap { width: 148px; flex-shrink: 0; cursor: pointer; pointer-events: auto; animation: navieBob 6s ease-in-out infinite; animation-delay: 1s; }
+.navie-bot-wrap img { width: 100%; display: block; filter: drop-shadow(0 16px 26px rgba(12,30,51,0.28)); }
+
+/* Arrival flourishes — layered on top of the left/top travel transition above, one per stop "feel" */
+.navie-bot-wrap.pop-fly { animation: navieBob 6s ease-in-out infinite 1s, navieArriveFly 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+.navie-bot-wrap.pop-bounce { animation: navieBob 6s ease-in-out infinite 1s, navieArriveBounce 1s cubic-bezier(0.34,1.56,0.64,1); }
+.navie-bot-wrap.pop-think { animation: navieBob 6s ease-in-out infinite 1s, navieArriveThink 1.2s ease-out; }
+.navie-bot-wrap.pop-settle { animation: navieBob 6s ease-in-out infinite 1s, navieArriveSettle 1.4s ease-out; }
+.navie-bot-wrap.thinking-loop { animation: navieBob 6s ease-in-out infinite 1s, navieThinkLoop 2.6s ease-in-out infinite; }
+
+.navie-bubble {
+  background: rgba(255,255,255,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.55); border-radius: 14px;
+  padding: 10px 14px; box-shadow: var(--shadow-soft); max-width: 168px; text-align: center;
+  opacity: 0; transform: translateY(-4px) scale(0.92); pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+/* Bubble only shows once Navie has actually arrived and settled — never while travelling */
+.navie-teaser.navie-arrived .navie-bubble { opacity: 1; transform: translateY(0) scale(1); }
+
+.navie-bubble .nb-line1 { font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+.navie-bubble .nb-line2 { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; line-height: 1.35; }

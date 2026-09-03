@@ -1,0 +1,78 @@
+/* ================= Base layout ================= */
+@media (max-width: 860px) { section { padding: 86px 6vw; } }
+
+/* ================= Signature route line ================= */
+@media (max-width: 980px) { #routeLine { display: none; } }
+
+/* ================= Nav ================= */
+@media (max-width: 860px) { .nav-links { display: none; } }
+
+/* ================= Hero ================= */
+@media (max-width: 980px) { #hero { padding-top: 150px; } .hero-inner { grid-template-columns: 1fr; gap: 54px; } }
+@media (max-width: 640px) { .hero-fb-1, .hero-fb-2, .hero-fb-3 { display: none; } }
+
+/* ================= Navie travel lane (tablet) =================
+   The lane narrows in two steps as the viewport shrinks, and Navie + its bubble shrink
+   to match at each step so they still fit inside it with real margin — never touching
+   the lane's own edges. Below 860px there's no lane at all (mobile toast takes over). */
+@media (max-width: 1200px) and (min-width: 981px) {
+  :root { --navie-lane: 160px; }
+  .navie-bot-wrap { width: 126px; }
+  .navie-bubble { max-width: 140px; }
+}
+@media (max-width: 980px) and (min-width: 861px) {
+  :root { --navie-lane: 130px; }
+  .navie-bot-wrap { width: 106px; }
+  .navie-bubble { max-width: 112px; }
+}
+@media (max-width: 860px) {
+  :root { --navie-lane: 0px; }
+}
+
+/* ================= Navie (mobile toast) ================= */
+/* Below the tablet breakpoint the side gutters are too narrow to hold Navie without
+   crossing into content — there's no horizontal whitespace left to travel through.
+   Rather than pin Navie over whatever content happens to scroll underneath a fixed
+   spot, it surfaces briefly at each stop (like a toast) and recedes out of the way
+   between stops. See NAVIE_MOBILE_BREAKPOINT + the mobile-visible timer in js/navie.js. */
+@media (max-width: 860px) {
+  .navie-bot-wrap { width: 112px; }
+  .navie-bubble { display: none; } /* drop the bubble on mobile to avoid layout fights with small screens */
+  .navie-teaser.navie-mobile-lane {
+    left: 50% !important; right: auto !important; top: auto !important; bottom: 16px !important;
+    flex-direction: row; opacity: 0; pointer-events: none;
+    transform: translateX(-50%) translateY(10px) scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .navie-teaser.navie-mobile-lane.navie-mobile-visible {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+@media (max-width: 700px) {
+  .navie-bot-wrap { width: 88px; }
+}
+
+/* ================= Features ================= */
+@media (max-width: 860px) { .features-lead { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 700px) {
+  .feature-row { grid-template-columns: 44px 1fr; gap: 14px; }
+  .feature-icon { width: 44px; height: 44px; border-radius: 12px; }
+  .feature-icon svg { width: 20px; height: 20px; }
+}
+
+/* ================= How It Works ================= */
+@media (max-width: 860px) { .journey-svg { display: none; } }
+@media (max-width: 860px) { .steps-wrap { grid-template-columns: 1fr; gap: 48px; margin-top: 40px; } }
+
+/* ================= AI Section ================= */
+@media (max-width: 980px) { .ai-inner { grid-template-columns: 1fr; gap: 50px; } }
+
+/* ================= Prepare ================= */
+@media (max-width: 700px) { .prepare-labels { display: none; } }
+
+/* ================= Discover ================= */
+@media (max-width: 980px) { .discover-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ================= Footer ================= */
+@media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } }

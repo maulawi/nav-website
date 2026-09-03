@@ -1,0 +1,156 @@
+/* ================= Hero ================= */
+/* #hero keeps the vertical rhythm; .hero-inner (an .section-inner) owns the two-column
+   composition and is what actually gets capped/centered to leave the Navie lane. */
+#hero { padding-top: 190px; padding-bottom: 110px; }
+.hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
+.hero-copy p.lead { font-size: 19px; max-width: 480px; margin: 22px 0 34px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-points { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-point { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--ink-soft); }
+.hero-point .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+.hero-visual { position: relative; }
+.hero-visual::before {
+  content: ''; position: absolute; width: 460px; height: 460px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,137,62,0.16), transparent 70%); top: -8%; right: -14%; z-index: 0;
+}
+.hero-visual .video-frame { position: relative; z-index: 2; max-width: 420px; margin: 0 auto; }
+.hero-fb-1 { top: -6%; left: -8%; }
+.hero-fb-2 { bottom: 10%; right: -12%; }
+.hero-fb-3 { top: 46%; right: -16%; }
+
+/* ================= Problem / Solution ================= */
+/* 760px is narrower than the lane-driven cap at most widths, but not guaranteed at every
+   tablet lane tier (confirmed: at ~1000px the 160px lane tier leaves less margin than a
+   flat 760px assumes, and the safe-zone fallback in js/navie.js can't rescue it because
+   the true edge itself isn't clear either). Capping against the lane the same way
+   .section-inner does removes the fixed-width assumption instead of patching around it. */
+.problem-inner { max-width: min(760px, calc(100% - 2 * var(--navie-lane))); margin: 0 auto; text-align: center; }
+#problem .divider { width: 46px; height: 2px; background: var(--gold); margin: 28px auto 28px; }
+
+/* ================= Features ================= */
+.features-lead { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: flex-end; margin-bottom: 54px; }
+
+.features-list { display: flex; flex-direction: column; }
+.feature-row { display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: center; padding: 22px 8px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background 0.3s ease, padding-left 0.3s ease; }
+.feature-row:first-child { border-top: 1px solid var(--line); }
+.feature-row:hover, .feature-row.fr-active { padding-left: 16px; background: rgba(184,137,62,0.045); }
+
+/* Icon container: a small, restrained ivory/gold-tinted tile that anchors the line icon
+   next to the title — deliberately lightweight so it reads as part of the row, not a
+   separate card. Shared by all six feature icons. */
+.feature-icon {
+  width: 52px; height: 52px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--gold-soft), var(--paper) 78%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px -4px rgba(184,137,62,0.25);
+  color: var(--gold);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.feature-icon svg { width: 24px; height: 24px; }
+.feature-row:hover .feature-icon { transform: translateY(-2px) scale(1.02); border-color: rgba(184,137,62,0.35); }
+.feature-row.fr-active .feature-icon { background: var(--gold-soft); box-shadow: 0 4px 12px -4px rgba(184,137,62,0.35); }
+
+.feature-row h3 { margin-bottom: 6px; font-size: 19px; }
+.feature-row p { font-size: 14.5px; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease; }
+.feature-row.fr-active p { max-height: 60px; opacity: 1; margin-top: 4px; }
+
+.features-proof { margin-top: 68px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); position: relative; }
+.features-proof img { width: 100%; }
+.features-proof-label { position: absolute; top: 20px; left: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--paper); background: rgba(12,30,51,0.55); padding: 8px 14px; border-radius: 999px; backdrop-filter: blur(8px); }
+
+/* ================= How It Works ================= */
+.journey-wrap { position: relative; margin-top: 70px; }
+.journey-svg { width: 100%; height: 90px; display: block; }
+.journey-path { stroke: var(--gold-soft); stroke-width: 1.5; fill: none; }
+.journey-node-ring { fill: var(--paper); stroke: var(--gold); stroke-width: 1.5; }
+.steps-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 8px; }
+.step { position: relative; padding-left: 4px; }
+.step-num { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: var(--gold); letter-spacing: 1px; margin-bottom: 16px; display: block; }
+.step h3 { margin-bottom: 10px; }
+.step p { font-size: 15px; }
+
+/* ================= AI Section (Navy) ================= */
+section.navy { background: var(--navy); }
+#ai-section { padding-top: 140px; padding-bottom: 140px; overflow: hidden; }
+/* .ai-inner also carries the .section-inner class in the markup, so it's capped/centered
+   for the Navie lane without a redundant extra wrapper. */
+.ai-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+.ai-demo { background: rgba(255,255,255,0.04); border: 1px solid var(--line-navy); border-radius: 18px; padding: 26px; margin: 28px 0; min-height: 168px; }
+.ai-demo-prompt { font-family: 'Fraunces', serif; font-size: 16px; font-style: italic; color: var(--paper); }
+.ai-demo .cursor { display: inline-block; width: 2px; height: 16px; background: var(--gold-bright); margin-left: 3px; animation: blink 1s step-end infinite; vertical-align: middle; }
+.ai-demo-processing { display: none; align-items: center; gap: 10px; margin-top: 18px; font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-bright); }
+.ai-demo-processing.show { display: flex; }
+.ai-dots { display: flex; gap: 4px; }
+.ai-dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-bright); animation: dotPulse 1.2s ease-in-out infinite; }
+.ai-dots span:nth-child(2) { animation-delay: 0.2s; }
+.ai-dots span:nth-child(3) { animation-delay: 0.4s; }
+.ai-demo-result { display: none; margin-top: 18px; border-top: 1px solid var(--line-navy); padding-top: 16px; }
+.ai-demo-result.show { display: block; }
+.ai-result-item { display: flex; justify-content: space-between; font-size: 13.5px; color: var(--navy-soft); padding: 6px 0; }
+.ai-result-item b { color: var(--paper); font-weight: 600; }
+
+.ai-visual { display: flex; justify-content: center; position: relative; }
+.ai-visual::before { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(184,137,62,0.18), transparent 70%); z-index: 0; }
+.ai-visual .video-frame { max-width: 340px; position: relative; z-index: 1; }
+.ai-fb { top: -8%; right: 4%; }
+
+/* ================= Prepare =================
+   Repurposed from the old "Connected" section — same visual structure (a centered
+   video-frame with floating labels around it), new purpose: practical pre-departure
+   readiness (packing/visa/budget/tools) instead of "everything's linked". The .clabel*
+   position-helper classes keep their original names since they're purely presentational
+   (label placement around the frame), not tied to the old "connected" meaning. */
+#prepare { text-align: center; }
+.prepare-visual { position: relative; max-width: 340px; margin: 64px auto 0; }
+.prepare-visual .video-frame { position: relative; z-index: 1; }
+.prepare-labels { position: absolute; inset: -50px; z-index: 2; }
+.clabel { position: absolute; }
+.clabel-1 { top: 2%; left: -16%; }
+.clabel-2 { top: 20%; right: -20%; }
+.clabel-3 { top: 48%; left: -22%; }
+.clabel-4 { top: 62%; right: -18%; }
+.clabel-5 { bottom: 6%; left: -12%; }
+.clabel-6 { bottom: 0%; right: -10%; }
+
+/* ================= Discover ================= */
+#discover { position: relative; overflow: hidden; }
+/* .discover-inner also carries the .section-inner class in the markup — same reasoning as .ai-inner. */
+.discover-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2; }
+.discover-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 26px 0 34px; }
+.discover-tag { font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); display: inline-flex; align-items: center; gap: 5px; }
+.discover-visual { position: relative; }
+.discover-visual .video-frame { max-width: 400px; margin: 0 auto; }
+.discover-fb { bottom: -6%; left: -6%; }
+
+/* ================= Whop Access ================= */
+#whop-access { text-align: center; }
+/* Same lane-aware cap as .problem-inner — 620px already tested clear of the lane at every
+   tier, but this removes the fixed-width assumption rather than relying on that holding. */
+.whop-inner { max-width: min(620px, calc(100% - 2 * var(--navie-lane))); margin: 0 auto; }
+.whop-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); border: 1px solid var(--line); margin-bottom: 30px; font-size: 13.5px; font-weight: 700; color: var(--ink-soft); }
+.whop-badge img { width: 20px; height: 20px; border-radius: 5px; }
+#whop-access .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 30px 0 20px; }
+#whop-access .fine-print { font-size: 13.5px; color: var(--steel); }
+
+/* ================= Final CTA ================= */
+#final-cta { text-align: center; background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); position: relative; overflow: hidden; }
+#final-cta::before { content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(184,137,62,0.12), transparent 70%); z-index: 0; }
+.final-compass { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 480px; height: 480px; opacity: 0.06; z-index: 0; }
+#final-cta .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; position: relative; z-index: 1; }
+#final-cta h2, #final-cta p { position: relative; z-index: 1; }
+#final-cta p { max-width: 480px; margin: 0 auto; }
+
+/* ================= Footer ================= */
+footer { background: var(--navy-deep); padding: 80px 8vw 40px; color: var(--navy-soft); position: relative; z-index: 2; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+.footer-brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: var(--paper); margin-bottom: 12px; }
+.footer-brand img { height: 28px; width: auto; }
+.footer-tagline { font-size: 13.5px; color: var(--steel); }
+.footer-col h4 { font-family: 'Manrope', sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--steel); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: var(--navy-soft); margin-bottom: 12px; transition: color 0.2s ease; }
+.footer-col a:hover { color: var(--gold-bright); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; font-size: 12.5px; color: var(--steel); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }

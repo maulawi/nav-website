@@ -1,0 +1,24 @@
+:root {
+  --ivory: #FAF7F0;
+  --paper: #FFFFFF;
+  --ink: #1C1E24;
+  --ink-soft: #63666F;
+  --navy: #0C1E33;
+  --navy-deep: #081524;
+  --navy-soft: #A9BBD1;
+  --gold: #B8893E;
+  --gold-bright: #CDA05C;
+  --gold-soft: #ECE0C7;
+  --steel: #8B909A;
+  --line: rgba(28,30,36,0.09);
+  --line-navy: rgba(255,255,255,0.10);
+  --shadow: 0 30px 60px -30px rgba(12,30,51,0.22);
+  --shadow-soft: 0 20px 40px -26px rgba(12,30,51,0.16);
+
+  /* Navie's travel lane: a guaranteed-empty strip reserved on each outer edge of every
+     section, so Navie always has real, physical space to travel through — see
+     .section-inner in base.css and js/navie.js. Narrows at tablet widths (responsive.css)
+     and drops to 0 below the mobile-toast breakpoint, where content reclaims full width. */
+  --navie-lane: 200px;
+  --content-max: 1160px;
+}
