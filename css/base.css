@@ -30,7 +30,11 @@ section { position: relative; padding: 130px 3vw; z-index: 2; }
 }
 
 h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); }
-h1 { font-size: clamp(40px, 6vw, 70px); }
+/* Phase 4B: re-tuned for the new headline ("Explore real places." is longer than the
+   previous longest line, "Travel smarter.") using the same empirical per-width safe-size
+   measurement as the original tuning — see the two tiers in responsive.css this pairs
+   with for the 981-1439px two-column band. */
+h1 { font-size: clamp(36px, 4.7vw, 50px); }
 h2 { font-size: clamp(32px, 4.4vw, 48px); }
 h3 { font-size: 21px; font-weight: 600; }
 .on-navy h1, .on-navy h2, .on-navy h3, section.navy h1, section.navy h2, section.navy h3 { color: var(--paper); }

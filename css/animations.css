@@ -18,16 +18,18 @@
 
 @keyframes navieBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-9px) rotate(-1.5deg); } }
 
+/* Phase 3: both pops kept their distinct character (fly = a little swoop-in, bounce = a
+   soft landing) but with roughly half the previous amplitude and one fewer oscillation —
+   the original overshoot (rotate 14deg, scale 1.1, a -46px pre-bounce) read as "excessive
+   bounce"; this settles in one motion instead of two. */
 @keyframes navieArriveFly {
   0% { transform: translateY(0) rotate(0deg) scale(1); }
-  30% { transform: translateY(-16px) rotate(14deg) scale(1.1); }
-  60% { transform: translateY(5px) rotate(-7deg) scale(0.96); }
+  35% { transform: translateY(-9px) rotate(7deg) scale(1.05); }
   100% { transform: translateY(0) rotate(0deg) scale(1); }
 }
 @keyframes navieArriveBounce {
-  0% { transform: translateY(-46px) scale(0.88) rotate(-6deg); }
-  50% { transform: translateY(7px) scale(1.06) rotate(3deg); }
-  75% { transform: translateY(-9px) scale(0.98) rotate(-2deg); }
+  0% { transform: translateY(-22px) scale(0.94) rotate(-3deg); }
+  60% { transform: translateY(4px) scale(1.02) rotate(1deg); }
   100% { transform: translateY(0) scale(1) rotate(0deg); }
 }
 @keyframes navieArriveThink {
@@ -59,6 +61,8 @@
 
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
+
+  .step-num, .step-stage, .step h3, .step p { opacity: 1; transform: none; transition: none; }
 
   .float-badge { animation: none; }
 

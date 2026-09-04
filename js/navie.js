@@ -65,8 +65,12 @@ if (navieTeaser) {
   const TRAVEL_DURATION = 2000; // ms — a slow, visible glide, not a snap
   const SETTLE_PAUSE = 200;     // ms — a small breath between landing and the bubble popping up
 
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  // Phase 3: was a symmetric ease-in-out (slow launch, slow arrival). Switched to a pure
+  // ease-out — immediate departure, gentle deceleration into the settle — which is what
+  // "approach -> decelerate -> settle" actually describes; a slow launch read as
+  // hesitation rather than travel. Same TRAVEL_DURATION, only the curve changed.
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
   }
 
   // Glides the teaser from its current on-screen spot to (toLeft, toTop) along a gentle
@@ -89,7 +93,7 @@ if (navieTeaser) {
     const start = performance.now();
     function frame(now) {
       const t = Math.min(1, (now - start) / duration);
-      const e = easeInOutCubic(t);
+      const e = easeOutCubic(t);
       const inv = 1 - e;
       navieTeaser.style.left = (inv * inv * fromLeft + 2 * inv * e * ctrlLeft + e * e * toLeft) + 'px';
       navieTeaser.style.top = (inv * inv * fromTop + 2 * inv * e * ctrlTop + e * e * toTop) + 'px';
@@ -113,7 +117,7 @@ if (navieTeaser) {
     const teaserRect = { left: centeredLeft, right: centeredLeft + teaserWidth, top, bottom: top + teaserHeight };
     const footerEl = document.querySelector('footer');
     const guarded = sectionEl.querySelectorAll(
-      'h1,h2,h3,.btn,.video-frame,.feature-row,.features-proof,.ai-demo,.discover-tags,.whop-badge,.journey-wrap,.float-badge'
+      'h1,h2,h3,.btn,.video-frame,.feature-row,.features-proof,.ai-demo,.discover-index,.whop-panel,.prepare-checklist,.journey-wrap,.float-badge,.final-more'
     );
     const guardedList = footerEl ? [...guarded, footerEl.querySelector('.footer-brand'), footerEl.querySelector('.footer-grid')].filter(Boolean) : Array.from(guarded);
     const hit = guardedList.some(el => {

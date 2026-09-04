@@ -9,6 +9,10 @@
   --gold: #B8893E;
   --gold-bright: #CDA05C;
   --gold-soft: #ECE0C7;
+  /* Text-safe gold: --gold on ivory is 2.94:1, fails WCAG AA for text (needs 4.5:1).
+     Reserved for text/label use (eyebrows) on light backgrounds only — --gold itself
+     stays untouched for icons, borders, and other non-text accents. */
+  --gold-ink: #8A662E;
   --steel: #8B909A;
   --line: rgba(28,30,36,0.09);
   --line-navy: rgba(255,255,255,0.10);

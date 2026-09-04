@@ -1,4 +1,8 @@
-.eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+/* Kept only where it adds context the heading doesn't already carry (hero, AI section,
+   prepare) — see index.html comments. The leading tick reads as a small waypoint marker
+   rather than a generic tracked-caps label. */
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 18px; }
+.eyebrow::before { content: ''; width: 18px; height: 1px; background: currentColor; opacity: 0.55; }
 .eyebrow.on-navy { color: var(--gold-bright); }
 
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 15px 28px; border-radius: 999px; font-size: 14.5px; font-weight: 700; font-family: 'Manrope', sans-serif; cursor: pointer; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, background 0.3s ease, border-color 0.3s ease; border: none; }
@@ -6,7 +10,9 @@
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(12,30,51,0.45); }
 .btn-primary svg { transition: transform 0.3s ease; }
 .btn-primary:hover svg { transform: translateX(3px); }
-.btn-gold { background: var(--gold); color: var(--paper); }
+/* Dark text on gold: white-on-gold measured 3.14:1 (fails WCAG AA text at 4.5:1). Keeps
+   --gold itself unchanged/rich as an accent — only the button's text color moves. */
+.btn-gold { background: var(--gold); color: var(--navy-deep); }
 .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(184,137,62,0.5); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
@@ -45,22 +51,21 @@
   animation: floatBob 7s ease-in-out infinite; z-index: 5;
 }
 .float-badge.on-navy { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); color: var(--paper); }
-.float-badge .fb-icon { font-size: 14px; }
+.float-badge .fb-icon { display: inline-flex; color: var(--gold); }
+.float-badge.on-navy .fb-icon { color: var(--gold-bright); }
+.fb-icon svg { width: 13px; height: 13px; display: block; }
 
-/* ================= Video / product preview frame ================= */
+/* ================= Video / product preview frame =================
+   Presented as a static premium product screenshot, not a fake video player — no play
+   control or progress bar since no video exists yet (see index.html Task 8 note). */
 .video-frame {
   position: relative; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);
   aspect-ratio: 4/3; background: var(--navy);
 }
-.video-frame .vf-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-.video-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,30,51,0.15), rgba(12,30,51,0.55)); }
+.video-frame .vf-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+.video-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,30,51,0.08), rgba(12,30,51,0.38)); }
 .vf-label { position: absolute; top: 18px; left: 18px; z-index: 3; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); background: rgba(8,21,36,0.55); padding: 7px 13px; border-radius: 999px; backdrop-filter: blur(8px); }
-.vf-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 3; width: 68px; height: 68px; border-radius: 50%; background: rgba(255,255,255,0.14); border: 1.5px solid rgba(255,255,255,0.4); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), background 0.3s ease; cursor: pointer; }
-.vf-play:hover { transform: translate(-50%,-50%) scale(1.08); background: rgba(255,255,255,0.22); }
-.vf-play svg { margin-left: 4px; }
 .vf-caption { position: absolute; bottom: 18px; left: 18px; z-index: 3; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.85); }
-.vf-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.15); z-index: 3; }
-.vf-progress-fill { height: 100%; width: 28%; background: var(--gold-bright); }
 
 /* ================= Nav ================= */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px 8vw; background: rgba(250,247,240,0.7); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease; }

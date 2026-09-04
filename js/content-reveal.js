@@ -56,13 +56,13 @@ const SECTION_SEQUENCES = {
     document.querySelectorAll('#problem p'),
   ],
   features: () => [
-    [document.querySelector('#features .eyebrow'), document.querySelector('#features h2')],
+    document.querySelector('#features h2'),
     document.querySelector('.features-lead > p'),
     document.querySelectorAll('.feature-row'),
     document.querySelector('.features-proof'),
   ],
   'how-it-works': () => [
-    [document.querySelector('#how-it-works .eyebrow'), document.querySelector('#how-it-works h2')],
+    document.querySelector('#how-it-works h2'),
     document.querySelectorAll('.step'),
   ],
   'ai-section': () => [
@@ -73,17 +73,19 @@ const SECTION_SEQUENCES = {
     document.querySelector('#ai-section .hero-ctas'),
   ],
   discover: () => [
-    [document.querySelector('#discover .eyebrow'), document.querySelector('#discover h2')],
-    document.querySelector('.discover-copy > p.reveal:not(.eyebrow)'),
-    [document.querySelector('.discover-tags'), document.querySelector('#discover .btn-ghost')],
+    document.querySelector('#discover h2'),
+    document.querySelector('.discover-intro p'),
     document.querySelector('.discover-visual'),
+    document.querySelectorAll('.discover-index .reveal'),
   ],
   prepare: () => [
     [document.querySelector('#prepare .eyebrow'), document.querySelector('#prepare h2')],
-    document.querySelector('#prepare p'),
+    document.querySelector('#prepare p:not(.eyebrow)'),
+    document.querySelectorAll('.prepare-checklist .reveal'),
     document.querySelector('.prepare-visual'),
   ],
   'whop-access': () => [
+    document.querySelector('.whop-arrival'),
     document.querySelector('.whop-badge'),
     document.querySelector('#whop-access h2'),
     document.querySelector('#whop-access p:not(.fine-print)'),
@@ -91,9 +93,11 @@ const SECTION_SEQUENCES = {
     document.querySelector('#whop-access .fine-print'),
   ],
   'final-cta': () => [
+    document.querySelector('.final-coord'),
     document.querySelector('#final-cta h2'),
     document.querySelector('#final-cta p'),
     document.querySelector('#final-cta .btn-row'),
+    document.querySelector('.final-more'),
   ],
 };
 

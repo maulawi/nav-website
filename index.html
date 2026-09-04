@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NavGate — AI Travel. Smarter Journeys.</title>
+<title>NavGate — Explore Real Places. Plan with AI. Prepare to Go.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/variables.css">
@@ -49,7 +49,7 @@
     <a href="#whop-access">Whop</a>
   </div>
   <div class="nav-right">
-    <a href="#whop-access" class="btn btn-primary">Try NavGate Free</a>
+    <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="nav" class="btn btn-primary" aria-label="Try NavGate Free — opens Whop in a new tab">Try NavGate Free</a>
   </div>
 </nav>
 
@@ -57,29 +57,31 @@
 <section id="hero">
  <div class="hero-inner section-inner">
   <div class="hero-copy">
-    <p class="eyebrow reveal">AI Travel · Smarter Journeys</p>
-    <h1 class="reveal">Plan better.<br/>Travel smarter.<br/>Explore more.</h1>
-    <p class="lead reveal">Plan trips, discover real places, organize everything, and travel smarter — all in one app.</p>
+    <p class="eyebrow reveal">Real Places · AI Planning</p>
+    <h1 class="reveal">Explore real places.<br/>Plan the trip.<br/>Get ready to go.</h1>
+    <p class="lead reveal">Explore 200M+ real places, turn them into an AI-planned itinerary, and get ready to go — all in one app.</p>
     <div class="hero-ctas reveal">
-      <a href="#whop-access" class="btn btn-primary">Try NavGate Free <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#whop-access" class="btn btn-ghost">Access on Whop</a>
+      <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="hero-primary" class="btn btn-primary" aria-label="Try NavGate Free — opens Whop in a new tab">Try NavGate Free <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="hero-secondary" class="btn btn-ghost" aria-label="Access on Whop — opens Whop in a new tab">Access on Whop</a>
     </div>
     <div class="hero-points reveal">
       <div class="hero-point"><span class="dot"></span> Built for real travelers</div>
       <div class="hero-point"><span class="dot"></span> Plan everything in one place</div>
-      <div class="hero-point"><span class="dot"></span> Powered by AI</div>
+      <div class="hero-point"><span class="dot"></span> 200M+ real places</div>
     </div>
   </div>
   <div class="hero-visual reveal">
-    <div class="float-badge hero-fb-1"><span class="fb-icon">✨</span> AI Trip Plan</div>
-    <div class="float-badge hero-fb-2"><span class="fb-icon">📍</span> 12 Places</div>
-    <div class="float-badge hero-fb-3"><span class="fb-icon">☀️</span> 24°C</div>
+    <div class="float-badge hero-fb-1"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M18.5 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></svg></span> AI Trip Plan</div>
+    <div class="float-badge hero-fb-2"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span> 12 Places</div>
     <div class="video-frame">
-      <img class="vf-poster" src="assets/app-preview.jpg" alt="NavGate product preview" />
+      <!-- Same class/box (.vf-poster) the static image used, so the existing frame,
+           border, corner ticks, shadow, and object-fit:cover treatment apply unchanged.
+           id="heroDemoVideo" is read once by js/main.js to pause+reset it under
+           prefers-reduced-motion — see that file for the existing matchMedia pattern
+           this follows (already used the same way in js/navie.js and js/ai-demo.js). -->
+      <video id="heroDemoVideo" class="vf-poster" src="assets/hero-demo.mp4" poster="assets/app-preview.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <span class="vf-label">NavGate in Action</span>
-      <button class="vf-play" aria-label="Play product preview"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></button>
-      <span class="vf-caption">Watch a trip come together</span>
-      <div class="vf-progress"><div class="vf-progress-fill"></div></div>
+      <span class="vf-caption">A trip, planned in one view</span>
     </div>
 
   </div>
@@ -89,9 +91,9 @@
 <!-- 02 — PROBLEM -->
 <section id="problem">
  <div class="problem-inner section-inner">
-  <h2 class="reveal">Travel planning shouldn't feel scattered.</h2>
+  <h2 class="reveal">Your trip shouldn't live across 20 tabs.</h2>
   <div class="divider reveal"></div>
-  <p class="reveal">Trips often end up spread across maps, screenshots, notes, websites, and multiple apps.</p>
+  <p class="reveal">Destinations in one tab. The itinerary in another. Visa rules, budget, packing — each living in a different app.</p>
   <p class="reveal" style="margin-top:8px; color:var(--ink); font-weight:600;">NavGate brings your journey together in one place.</p>
  </div>
 </section>
@@ -99,24 +101,28 @@
 <!-- 03 — DISCOVER (moved ahead of planning: you find a place before you plan around it) -->
 <section id="discover">
   <div class="discover-inner section-inner">
-    <div class="discover-copy">
-      <p class="eyebrow reveal">Start exploring</p>
-      <h2 class="reveal">Discover places worth the journey.</h2>
-      <p class="reveal">Find inspiration, explore destinations, and discover real places that belong on your next journey.</p>
-      <div class="discover-tags reveal">
-        <span class="discover-tag">📍 Japan</span>
-        <span class="discover-tag">📍 Bali</span>
-        <span class="discover-tag">📍 Tunisia</span>
-        <span class="discover-tag">📍 Morocco</span>
-      </div>
-      <a href="#whop-access" class="btn btn-ghost reveal">Explore destinations →</a>
+    <div class="discover-intro">
+      <h2 class="reveal">Discover what's actually there.</h2>
+      <p class="reveal">Explore 200M+ real places and find the restaurants, attractions, activities, and landmarks that make a destination worth visiting.</p>
     </div>
-    <div class="discover-visual reveal">
-      <div class="float-badge discover-fb"><span class="fb-icon">📍</span> Santorini, Greece</div>
-      <div class="video-frame">
-        <img class="vf-poster" src="assets/app-dashboard.jpg" alt="NavGate Discover screens" />
-        <span class="vf-label">Discover in Action</span>
-        <button class="vf-play" aria-label="Play discover preview"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="discover-spread">
+      <div class="discover-visual reveal">
+        <div class="float-badge discover-fb"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span> Santorini, Greece</div>
+        <div class="video-frame">
+          <!-- Same class (.vf-poster) the static image used, so the existing frame, border,
+               corner ticks, shadow, and object-fit:cover apply unchanged. id read once by
+               js/main.js to pause+reset under prefers-reduced-motion, same pattern as the
+               Hero demo video. -->
+          <video id="discoverDemoVideo" class="vf-poster" src="assets/discover-demo.mp4" poster="assets/app-dashboard.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <span class="vf-label">Discover in Action</span>
+        </div>
+      </div>
+      <div class="discover-index reveal-stagger">
+        <div class="discover-place reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>Japan</span></div>
+        <div class="discover-place reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>Bali</span></div>
+        <div class="discover-place reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>Tunisia</span></div>
+        <div class="discover-place reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.1 7-12a7 7 0 1 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg><span>Morocco</span></div>
+        <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="discover" class="discover-more reveal" aria-label="Explore destinations — opens Whop in a new tab">Explore destinations →</a>
       </div>
     </div>
   </div>
@@ -127,7 +133,6 @@
  <div class="features-inner section-inner">
   <div class="features-lead">
     <div>
-      <p class="eyebrow reveal">Everything, in one place</p>
       <h2 class="reveal">Everything you need,<br/>in one app.</h2>
     </div>
     <p class="reveal">Six ways NavGate replaces the scattered tabs, screenshots, and notes apps most trips end up living in.</p>
@@ -141,7 +146,8 @@
           <path d="M18.5 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/>
         </svg>
       </span>
-      <div><h3>AI Trip Planning</h3><p>Turn your travel ideas into structured plans and itineraries.</p></div>
+      <div><h3>AI Trip Planning</h3><p>Turn your idea into a real itinerary.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="feature-row reveal" data-feature="2" tabindex="0" role="button" aria-expanded="false">
       <span class="feature-icon" aria-hidden="true">
@@ -150,7 +156,8 @@
           <circle cx="12" cy="9" r="2.4"/>
         </svg>
       </span>
-      <div><h3>Discover Real Places</h3><p>Find destinations, attractions, and places worth adding to your journey.</p></div>
+      <div><h3>Discover Real Places</h3><p>Find real places worth building your trip around.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="feature-row reveal" data-feature="3" tabindex="0" role="button" aria-expanded="false">
       <span class="feature-icon" aria-hidden="true">
@@ -160,7 +167,8 @@
           <path d="M7.2 17c1-3 2-4.5 4-6.5s3.5-3 5.3-4" stroke-dasharray="2.4 2.8"/>
         </svg>
       </span>
-      <div><h3>Plan Your Trips</h3><p>Organize destinations, dates, activities, and your journey in one place.</p></div>
+      <div><h3>Plan Your Trips</h3><p>Organize dates, activities, and destinations in one place.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="feature-row reveal" data-feature="4" tabindex="0" role="button" aria-expanded="false">
       <span class="feature-icon" aria-hidden="true">
@@ -170,7 +178,8 @@
           <path d="M16.5 14.5h1.5"/>
         </svg>
       </span>
-      <div><h3>Budget & Expenses</h3><p>Keep track of estimated travel costs and trip spending.</p></div>
+      <div><h3>Budget &amp; Expenses</h3><p>Track what your trip actually costs.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="feature-row reveal" data-feature="5" tabindex="0" role="button" aria-expanded="false">
       <span class="feature-icon" aria-hidden="true">
@@ -182,6 +191,7 @@
         </svg>
       </span>
       <div><h3>Packing Checklist</h3><p>Keep track of everything you need before you go.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="feature-row reveal" data-feature="6" tabindex="0" role="button" aria-expanded="false">
       <span class="feature-icon" aria-hidden="true">
@@ -193,7 +203,8 @@
           <path d="M16 17.5l1 1.1 2-2.3"/>
         </svg>
       </span>
-      <div><h3>Visa Checker & Travel Tools</h3><p>Understand travel requirements and access useful tools before and during your journey.</p></div>
+      <div><h3>Visa Checker &amp; Travel Tools</h3><p>Check visa requirements before you travel.</p></div>
+      <svg class="feature-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
     </div>
   </div>
 
@@ -207,7 +218,6 @@
 <!-- 05 — HOW IT WORKS -->
 <section id="how-it-works">
  <div class="how-it-works-inner section-inner">
-  <p class="eyebrow reveal">The journey</p>
   <h2 class="reveal">From idea to journey in a few steps.</h2>
 
   <div class="journey-wrap">
@@ -220,16 +230,19 @@
     <div class="steps-wrap reveal-stagger">
       <div class="step reveal">
         <span class="step-num">01</span>
+        <span class="step-stage mono">Discover</span>
         <h3>Start with an idea</h3>
         <p>Tell NavGate where you want to go or start exploring destinations.</p>
       </div>
       <div class="step reveal">
         <span class="step-num">02</span>
+        <span class="step-stage mono">Plan</span>
         <h3>Build your journey</h3>
         <p>Add places, activities, budgets, checklists, and everything that matters.</p>
       </div>
       <div class="step reveal">
         <span class="step-num">03</span>
+        <span class="step-stage mono">Travel</span>
         <h3>Travel with clarity</h3>
         <p>Open your trip and have your journey organized in one place.</p>
       </div>
@@ -244,7 +257,7 @@
     <div class="ai-copy">
       <p class="eyebrow on-navy reveal">AI Trip Planning</p>
       <h2 class="reveal">From an idea to a real journey.</h2>
-      <p class="reveal">Tell NavGate what you're dreaming about. Let AI help turn it into a structured journey.</p>
+      <p class="reveal">Tell NavGate what you're dreaming about — its AI turns your preferences into a plan built from real places, not guesses.</p>
 
       <div class="ai-demo reveal" id="aiDemo">
         <p class="ai-demo-prompt" id="aiPrompt">"Plan me a 7-day trip through Northern Tunisia."<span class="cursor"></span></p>
@@ -260,16 +273,20 @@
       </div>
 
       <div class="hero-ctas reveal">
-        <a href="#whop-access" class="btn btn-gold">Plan with AI</a>
+        <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="ai" class="btn btn-gold" aria-label="Plan with AI — opens Whop in a new tab">Plan with AI</a>
       </div>
     </div>
     <div class="ai-visual reveal">
-      <div class="float-badge on-navy ai-fb"><span class="fb-icon">🧭</span> 3 of 3 generations used</div>
+      <div class="float-badge on-navy ai-fb"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6 6-2z"/></svg></span> 3 of 3 generations used</div>
       <div class="video-frame">
-        <img class="vf-poster" src="assets/app-preview.jpg" alt="NavGate AI generating an itinerary" />
+        <!-- Dedicated AI itinerary-generation product showcase (distinct from the
+             interactive prompt/processing/result card in .ai-copy — this is visual proof
+             media only). Same .vf-poster class the static image used, so the existing
+             frame/border/corner ticks/shadow apply unchanged. poster falls back to the
+             shared app-preview.jpg while the video loads. id read once by js/main.js to
+             pause+reset under prefers-reduced-motion, same pattern as the other demo videos. -->
+        <video id="aiVisualVideo" class="vf-poster" src="assets/itinerary-generation.mp4" poster="assets/app-preview.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
         <span class="vf-label">AI in Action</span>
-        <button class="vf-play" aria-label="Play AI planning demo"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></button>
-        <div class="vf-progress"><div class="vf-progress-fill" style="width:52%;"></div></div>
       </div>
     </div>
   </div>
@@ -281,39 +298,61 @@
  <div class="prepare-inner section-inner">
   <p class="eyebrow reveal">Before you go</p>
   <h2 class="reveal">Prepare for the journey.</h2>
-  <p class="reveal" style="max-width:520px; margin:0 auto;">From packing lists to visa requirements and budget tracking, NavGate keeps everything you need before departure in one place.</p>
+  <p class="reveal" style="max-width:520px; margin:0 auto;">Your itinerary is just the start. NavGate helps with packing, visa requirements, and your budget — so nothing gets left behind before you go.</p>
+
+  <!-- Departure-register strip: the same four capabilities, now read as a checklist
+       (ticket-stub dividers, bare icons, no floating/bobbing pills) rather than badges
+       scattered around the screenshot — see Task 6, "editorial checklist/register". -->
+  <div class="prepare-checklist reveal-stagger">
+    <div class="prepare-item reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V5.5A2.5 2.5 0 0 1 11.5 3h1A2.5 2.5 0 0 1 15 5.5V7"/><path d="M7 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><path d="M9.5 11h5"/><path d="M9.5 14.5h5"/></svg>
+      <span>Packing</span>
+    </div>
+    <div class="prepare-item reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="12" height="18" rx="2"/><circle cx="10" cy="9" r="2"/><path d="M7 15.5c0-1.4 1.3-2.3 3-2.3s3 .9 3 2.3"/><circle cx="17.5" cy="17.5" r="3.6"/><path d="M16 17.5l1 1.1 2-2.3"/></svg>
+      <span>Visa</span>
+    </div>
+    <div class="prepare-item reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v1"/><path d="M4 8v9a2 2 0 0 0 2 2h13a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a2 2 0 0 1-2-2z"/><path d="M16.5 14.5h1.5"/></svg>
+      <span>Budget</span>
+    </div>
+    <div class="prepare-item reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6 6-2z"/></svg>
+      <span>Travel Tools</span>
+    </div>
+  </div>
 
   <div class="prepare-visual reveal">
-    <div class="prepare-labels">
-      <span class="float-badge clabel clabel-1"><span class="fb-icon">🎒</span> Packing</span>
-      <span class="float-badge clabel clabel-2"><span class="fb-icon">🛂</span> Visa</span>
-      <span class="float-badge clabel clabel-5"><span class="fb-icon">💰</span> Budget</span>
-      <span class="float-badge clabel clabel-6"><span class="fb-icon">🧭</span> Travel Tools</span>
-    </div>
     <div class="video-frame">
-      <img class="vf-poster" src="assets/app-dashboard.jpg" alt="NavGate trip preparation overview" />
+      <!-- Dedicated Prepare / Travel Tools product showcase. Same .vf-poster class the
+           static image used, so the existing frame/border/corner ticks/shadow apply
+           unchanged. poster falls back to the existing app-dashboard.jpg (still used by
+           Discover too) while the video loads. id read once by js/main.js to pause+reset
+           under prefers-reduced-motion, same pattern as the other demo videos. -->
+      <video id="prepareDemoVideo" class="vf-poster" src="assets/prepare-travel-tools.mp4" poster="assets/app-dashboard.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <span class="vf-label">Ready to Go</span>
-      <button class="vf-play" aria-label="Play preparation preview"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></button>
     </div>
   </div>
  </div>
 </section>
 
-<!-- 08 — START / WAITLIST
-     NOTE: CTA hrefs below are still placeholders ("#") pending the real Whop
-     checkout/waitlist URL and embed/modal — intentionally left as-is for this
-     structural phase; see Task 3. -->
+<!-- 08 — START / ACCESS
+     Conversion CTAs below point to the live NavGate product page on Whop. -->
 <section id="whop-access">
  <div class="whop-inner section-inner">
-  <div class="whop-badge reveal"><img src="assets/whop-badge.png" alt="Whop" /> Available on Whop</div>
-  <h2 class="reveal">Start your journey with NavGate.</h2>
-  <p class="reveal">Access NavGate through Whop and choose the plan that fits the way you travel.</p>
-  <div class="btn-row reveal">
-    <!-- TODO(whop-implementation): replace with real Whop checkout/waitlist destination -->
-    <a href="#" class="btn btn-primary">Try NavGate Free</a>
-    <a href="#" class="btn btn-ghost">Access on Whop</a>
+  <!-- Small arrival mark — a short dashed approach terminating in a filled waypoint,
+       echoing the route language used throughout the page: this is where it leads. -->
+  <div class="whop-arrival reveal" aria-hidden="true"><span></span></div>
+  <div class="whop-panel">
+    <div class="whop-badge reveal"><img src="assets/whop-badge.png" alt="Whop" /> Available on Whop</div>
+    <h2 class="reveal">Start your journey with NavGate.</h2>
+    <p class="reveal">Get access through Whop and start planning your next trip.</p>
+    <div class="btn-row reveal">
+      <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="whop-primary" class="btn btn-primary" aria-label="Try NavGate Free — opens Whop in a new tab">Try NavGate Free</a>
+      <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="whop-secondary" class="btn btn-ghost" aria-label="Access on Whop — opens Whop in a new tab">Access on Whop</a>
+    </div>
+    <p class="fine-print reveal">No complicated setup. Access NavGate and start planning your next journey.</p>
   </div>
-  <p class="fine-print reveal">No complicated setup. Access NavGate and start planning your next journey.</p>
  </div>
 </section>
 
@@ -326,12 +365,17 @@
     <path d="M100,15 L108,95 L100,105 L92,95 Z" fill="#CDA05C"/>
     <path d="M100,185 L108,105 L100,95 L92,105 Z" fill="#CDA05C"/>
   </svg>
+  <span class="final-coord mono reveal" aria-hidden="true">36.8&deg; N, 10.1&deg; E &middot; DESTINATION AHEAD</span>
   <h2 class="reveal">Your next journey starts here.</h2>
-  <p class="reveal">Discover more. Plan better. Travel smarter.</p>
+  <p class="reveal">Explore more. Plan smarter. Go further.</p>
   <div class="btn-row reveal">
-    <a href="#whop-access" class="btn btn-gold">Try NavGate Free</a>
-    <a href="#whop-access" class="btn btn-ghost on-navy">Access on Whop</a>
+    <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="final-primary" class="btn btn-gold" aria-label="Try NavGate Free — opens Whop in a new tab">Try NavGate Free</a>
+    <a href="https://whop.com/ai-travel-starter-kit/navgate-os/" target="_blank" rel="noopener noreferrer" data-cta="final-secondary" class="btn btn-ghost on-navy" aria-label="Access on Whop — opens Whop in a new tab">Access on Whop</a>
   </div>
+  <a href="https://ai-travel-starter-kit.lovable.app" target="_blank" rel="noopener noreferrer" data-cta="final-other-product" class="final-more reveal" aria-label="See another NavGate product — AI Travel Starter Kit — opens in a new tab">
+    <span class="final-more-label">See another NavGate product →</span>
+    <span class="final-more-name">AI Travel Starter Kit</span>
+  </a>
  </div>
 </section>
 
@@ -339,7 +383,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand"><img src="assets/logo.png" alt="NavGate" /> NavGate</div>
-      <p class="footer-tagline">AI travel. Smarter journeys.</p>
+      <p class="footer-tagline">Explore. Plan. Prepare. Go.</p>
     </div>
     <div class="footer-col">
       <h4>Product</h4>

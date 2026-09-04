@@ -21,9 +21,9 @@ revealEls.forEach(el => io.observe(el));
 
 /* ================= Nav background on scroll ================= */
 const navEl = document.getElementById('nav');
-window.addEventListener('scroll', () => {
+function updateNavScrolled() {
   navEl.classList.toggle('scrolled', window.scrollY > 20);
-});
+}
 
 /* ================= Signature route line: draw progress + section-node activation ================= */
 const routePath = document.getElementById('routePath');
@@ -57,7 +57,20 @@ function updateRouteLine() {
   routeDot.setAttribute('cx', point.x);
   routeDot.setAttribute('cy', point.y);
 }
-window.addEventListener('scroll', updateRouteLine);
+// Phase 3: both scroll-driven updates above (nav background + route line) used to run on
+// every single 'scroll' event, unthrottled. Consolidated into one rAF-gated handler — at
+// most once per animation frame no matter how many scroll events the browser fires in
+// between — same visual result, less redundant work during fast/trackpad scrolling.
+let scrollTickScheduled = false;
+window.addEventListener('scroll', () => {
+  if (scrollTickScheduled) return;
+  scrollTickScheduled = true;
+  requestAnimationFrame(() => {
+    updateNavScrolled();
+    updateRouteLine();
+    scrollTickScheduled = false;
+  });
+});
 window.addEventListener('resize', updateRouteLine);
 
 // Same fix as js/navie.js's stopObserver: a ratio threshold can never be reached for a

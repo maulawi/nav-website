@@ -138,7 +138,10 @@ function buildAmbientBackground() {
 function buildParticles() {
   const field = document.getElementById("particleField");
   field.innerHTML = "";
-  const count = window.innerWidth < 700 ? 8 : 16;
+  // Phase 3: trimmed (was 16/8) — even at low opacity and a slow 18-34s drift, 16
+  // simultaneously-moving points across the full viewport added up to more perceptible
+  // motion than "barely perceptible atmosphere" calls for.
+  const count = window.innerWidth < 700 ? 5 : 10;
   for (let i = 0; i < count; i++) {
     const p = document.createElement("div");
     p.className = "particle" + (i % 3 === 0 ? " navy-particle" : "");

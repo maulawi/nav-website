@@ -8,8 +8,39 @@
 @media (max-width: 860px) { .nav-links { display: none; } }
 
 /* ================= Hero ================= */
-@media (max-width: 980px) { #hero { padding-top: 150px; } .hero-inner { grid-template-columns: 1fr; gap: 54px; } }
-@media (max-width: 640px) { .hero-fb-1, .hero-fb-2, .hero-fb-3 { display: none; } }
+/* Below 980px .hero-inner stacks to one column, so .hero-visual (and the percentage
+   offsets below) suddenly span nearly the full page width instead of a narrow grid
+   column — the same -14%/-12%/-8% bleed that stays safely inside the page margin at
+   desktop then pushes past the real viewport edge, causing horizontal overflow. The glow
+   is purely decorative, so it's contained at its own box rather than removed; the badges
+   are real content, so they're pulled to a safe inward position instead of being clipped. */
+@media (max-width: 980px) {
+  #hero { padding-top: 150px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 54px; }
+  .hero-visual { overflow: hidden; }
+  /* Re-anchored onto the frame itself (clear of its own vf-label/vf-caption corners)
+     instead of escaping past it, since escaping is what .hero-visual's new clip would
+     otherwise cut off. */
+  .hero-fb-1 { top: 10px; left: auto; right: 10px; bottom: auto; }
+  .hero-fb-2 { top: auto; bottom: 10px; right: 10px; left: auto; }
+}
+
+/* h1's forced <br/> breaks assume "Explore real places." fits on one line. Above 980px
+   that column is only ~0.55 of hero-inner's width (2-col grid), so the base clamp's
+   vw-driven growth outpaces the column and the middle line wraps a second time. Fixed
+   with two measured, safe-margin tiers rather than one continuous curve, since the
+   column's actual width doesn't grow linearly with viewport here (the lane itself steps
+   from 200px to 160px at the same 1200px boundary, briefly widening the column again).
+   Phase 4B: re-measured and re-tuned for the new (longer) headline text — same method,
+   new numbers; "Travel smarter." was the longest line before, "Explore real places." is
+   now, and it doesn't fit the old tiers. */
+@media (max-width: 1439px) and (min-width: 1201px) {
+  h1 { font-size: clamp(36px, 3.2vw, 47px); }
+}
+@media (max-width: 1200px) and (min-width: 981px) {
+  h1 { font-size: clamp(28px, 3vw, 38px); }
+}
+@media (max-width: 640px) { .hero-fb-1, .hero-fb-2 { display: none; } }
 
 /* ================= Navie travel lane (tablet) =================
    The lane narrows in two steps as the viewport shrinks, and Navie + its bubble shrink
@@ -56,9 +87,11 @@
 /* ================= Features ================= */
 @media (max-width: 860px) { .features-lead { grid-template-columns: 1fr; gap: 24px; } }
 @media (max-width: 700px) {
-  .feature-row { grid-template-columns: 44px 1fr; gap: 14px; }
+  .feature-row { grid-template-columns: 44px 1fr 16px; gap: 14px; padding: 18px 18px; }
   .feature-icon { width: 44px; height: 44px; border-radius: 12px; }
   .feature-icon svg { width: 20px; height: 20px; }
+  .feature-row h3 { font-size: 17px; }
+  .feature-chevron { width: 16px; height: 16px; }
 }
 
 /* ================= How It Works ================= */
@@ -69,10 +102,20 @@
 @media (max-width: 980px) { .ai-inner { grid-template-columns: 1fr; gap: 50px; } }
 
 /* ================= Prepare ================= */
-@media (max-width: 700px) { .prepare-labels { display: none; } }
+@media (max-width: 700px) {
+  .prepare-checklist { flex-wrap: wrap; justify-content: center; }
+  .prepare-item { padding: 16px 18px; }
+  .prepare-item:nth-child(3) { border-left: none; }
+}
+@media (max-width: 460px) {
+  .prepare-checklist { display: flex; width: 100%; border-radius: 8px; }
+  .prepare-item { width: 50%; border-left: none !important; border-top: 1px solid var(--line); padding: 16px 12px; }
+  .prepare-item:nth-child(1), .prepare-item:nth-child(2) { border-top: none; }
+}
 
 /* ================= Discover ================= */
-@media (max-width: 980px) { .discover-inner { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 980px) { .discover-spread { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 640px) { .discover-intro { margin-bottom: 40px; } }
 
 /* ================= Footer ================= */
 @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
