@@ -60,28 +60,22 @@
   :root { --navie-lane: 0px; }
 }
 
-/* ================= Navie (mobile toast) ================= */
+/* ================= Navie (mobile) ================= */
 /* Below the tablet breakpoint the side gutters are too narrow to hold Navie without
-   crossing into content — there's no horizontal whitespace left to travel through.
-   Rather than pin Navie over whatever content happens to scroll underneath a fixed
-   spot, it surfaces briefly at each stop (like a toast) and recedes out of the way
-   between stops. See NAVIE_MOBILE_BREAKPOINT + the mobile-visible timer in js/navie.js. */
+   crossing into content — there's no horizontal whitespace left to travel through, so
+   it parks in a fixed corner instead of travelling lane-to-lane. It still updates its
+   message and plays its normal arrival flourish at each stop (same code path as
+   desktop, see arriveAt()/settleAt() in js/navie.js) — only the position is fixed. */
 @media (max-width: 860px) {
-  .navie-bot-wrap { width: 112px; }
-  .navie-bubble { display: none; } /* drop the bubble on mobile to avoid layout fights with small screens */
+  .navie-bot-wrap { width: 96px; }
+  .navie-bubble { max-width: 128px; }
   .navie-teaser.navie-mobile-lane {
-    left: 50% !important; right: auto !important; top: auto !important; bottom: 16px !important;
-    flex-direction: row; opacity: 0; pointer-events: none;
-    transform: translateX(-50%) translateY(10px) scale(0.9);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .navie-teaser.navie-mobile-lane.navie-mobile-visible {
-    opacity: 1; pointer-events: auto;
-    transform: translateX(-50%) translateY(0) scale(1);
+    left: auto !important; right: 16px !important; top: auto !important; bottom: 16px !important;
   }
 }
 @media (max-width: 700px) {
-  .navie-bot-wrap { width: 88px; }
+  .navie-bot-wrap { width: 80px; }
+  .navie-bubble { max-width: 112px; }
 }
 
 /* ================= Features ================= */

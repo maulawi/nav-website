@@ -177,28 +177,17 @@ if (navieTeaser) {
     navieTeaser.style.left = pos.left + 'px';
   }
 
-  // Mobile lane has no gutter to rest in, so Navie surfaces at each stop like a toast —
-  // pop, message, then recede — rather than sitting permanently over whatever content
-  // happens to be at the bottom of the viewport. Desktop/tablet ignores this entirely.
-  let mobileHideTimer = null;
-  function showMobileToast() {
-    clearTimeout(mobileHideTimer);
-    navieTeaser.classList.add('navie-mobile-visible');
-    if (navieReducedMotion) return;
-    mobileHideTimer = setTimeout(() => {
-      navieTeaser.classList.remove('navie-arrived', 'navie-mobile-visible');
-    }, 2600);
-  }
-
   // Fires once Navie has actually settled at a stop (after the glide + a short pause):
   // plays the arrival flourish, shows the bubble, and tells the rest of the page.
+  // Mobile has no lane to travel through (Navie stays parked in its fixed corner, see
+  // .navie-mobile-lane in responsive.css) but otherwise runs this exact same path, so
+  // its message updates and bubble shows the same way desktop's does.
   function settleAt(stop) {
     void navieBotWrap.offsetWidth; // reflow, so the pop animation replays even on repeat visits
     navieBotWrap.classList.add(stop.pop);
     if (stop.loop) navieBotWrap.classList.add(stop.loop);
 
     navieTeaser.classList.add('navie-arrived');
-    if (window.innerWidth <= NAVIE_MOBILE_BREAKPOINT) showMobileToast();
 
     // Let the rest of the page know Navie has actually landed and is showing its
     // message — this is what js/content-reveal.js listens for to wake up that
@@ -221,8 +210,7 @@ if (navieTeaser) {
     cancelAnimationFrame(travelFrame);
 
     // Leaving: hide the bubble immediately — it should never show mid-travel
-    navieTeaser.classList.remove('navie-arrived', 'navie-mobile-visible');
-    clearTimeout(mobileHideTimer);
+    navieTeaser.classList.remove('navie-arrived');
     navieBotWrap.classList.remove(...POP_CLASSES, 'thinking-loop');
 
     // Set the new stop's message text NOW (invisibly — the bubble stays opacity:0 until
@@ -235,7 +223,8 @@ if (navieTeaser) {
     const mobileLane = window.innerWidth <= NAVIE_MOBILE_BREAKPOINT;
     navieTeaser.classList.toggle('navie-mobile-lane', mobileLane);
     if (mobileLane) {
-      // No lane to travel through on mobile — settle happens right away, toast-style.
+      // No lane to travel through on mobile — Navie stays parked in its fixed corner
+      // (see .navie-mobile-lane in responsive.css) and just settles right away.
       arrivalTimer = setTimeout(() => settleAt(stop), 0);
       return;
     }
@@ -302,9 +291,7 @@ if (navieTeaser) {
   if (heroEl) entranceObserver.observe(heroEl);
 
   // Touch-friendly: tapping Navie re-shows the current stop's message if it was dismissed
-  // (on mobile this also resets the auto-hide toast timer instead of pinning it open)
   navieBotWrap.addEventListener('click', () => {
     navieTeaser.classList.add('navie-arrived');
-    if (window.innerWidth <= NAVIE_MOBILE_BREAKPOINT) showMobileToast();
   });
 }

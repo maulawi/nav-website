@@ -70,8 +70,7 @@
 
   .navie-teaser { transition: opacity 0.4s ease; top: 80vh !important; }
   .navie-teaser.navie-mobile-lane {
-    left: 50% !important; right: auto !important; bottom: 16px !important; top: auto !important;
-    opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1);
+    left: auto !important; right: 16px !important; bottom: 16px !important; top: auto !important;
   }
   .navie-bot-wrap, .navie-bot-wrap.pop-fly, .navie-bot-wrap.pop-bounce, .navie-bot-wrap.pop-think,
   .navie-bot-wrap.pop-settle, .navie-bot-wrap.thinking-loop { animation: none; }
